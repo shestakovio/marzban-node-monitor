@@ -48,7 +48,7 @@ class NodeMonitor:
         self.notifier.send_message(
             Responses.get_message(
                 "MONITOR_START",
-                master_name=self.master_name
+                master_name=self.master_name,
             ),
             parse_mode="HTML",
         )
@@ -69,6 +69,7 @@ class NodeMonitor:
                             "ERROR_MONITOR_FAILURE",
                             error_message="Timeout while retrieving nodes",
                             timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                            master_name=self.master_name,
                         ),
                         parse_mode="HTML",
                     )
@@ -81,6 +82,7 @@ class NodeMonitor:
                             "ERROR_MONITOR_FAILURE",
                             error_message=str(e),
                             timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                            master_name=self.master_name,
                         ),
                         parse_mode="HTML",
                     )
@@ -233,6 +235,7 @@ class NodeMonitor:
                         "ERROR_MONITOR_FAILURE",
                         error_message=str(e),
                         timestamp=timestamp_error,
+                        master_name=self.master_name,
                     ),
                     parse_mode="HTML",
                 )
