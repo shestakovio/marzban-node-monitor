@@ -48,7 +48,7 @@ class NodeMonitor:
         self.notifier.send_message(
             Responses.get_message(
                 "MONITOR_START",
-                master_name=master_name
+                master_name=self.master_name
             ),
             parse_mode="HTML",
         )
