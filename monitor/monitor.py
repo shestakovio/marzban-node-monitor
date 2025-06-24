@@ -28,6 +28,7 @@ class NodeMonitor:
         self.reconnect_attempts = 3
         self.reconnect_delay = 5
         self.node_check_delay = 10
+        self.master_name = Config.MARZBAN_BASE_URL
 
     def get_node_status_key(self, node_id):
         return f"{self.node_status_key_prefix}{node_id}"
@@ -45,7 +46,10 @@ class NodeMonitor:
 
     def monitor(self):
         self.notifier.send_message(
-            Responses.get_message("MONITOR_START"),
+            Responses.get_message(
+                "MONITOR_START",
+                master_name=master_name
+            ),
             parse_mode="HTML",
         )
         while True:
