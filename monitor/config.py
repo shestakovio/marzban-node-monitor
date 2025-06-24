@@ -89,7 +89,7 @@ class Responses:
             ),
             "ERROR_MONITOR_FAILURE": (
                 "❗ <b>[ERROR]</b>\n\n"
-                "<b>Произошла ошибка при мониторинге узлов.</b>\n\n"
+                "<b>Произошла ошибка при мониторинге {master_name}</b>\n\n"
                 "<code>----------------------------------------</code>\n"
                 "<b>Ошибка:</b> <code>{error_message}</code>\n"
                 "<b>Время:</b> {timestamp}\n"
